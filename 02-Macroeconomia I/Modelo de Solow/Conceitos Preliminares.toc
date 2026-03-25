@@ -1,7 +1,0 @@
-\babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Conceitos preliminares}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Funções côncavas}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Condições de Inada}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Função homogênea de grau $n$}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Teorema de Euler}{5}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Aplicação ao modelo de Solow-Swan}{5}{subsubsection.1.4.1}%
