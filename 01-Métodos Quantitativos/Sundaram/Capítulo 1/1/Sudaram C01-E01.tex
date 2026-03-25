@@ -1,0 +1,271 @@
+\documentclass[12pt]{article}
+
+% ------------------------------------------------------------
+% Pacotes básicos
+% ------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[brazil]{babel}
+\usepackage[english]{babel}
+
+\usepackage{lipsum}         % texto exemplo
+\usepackage{graphicx}       % imagens
+\usepackage{float}          % controle de posição de figuras
+\usepackage{booktabs}       % tabelas
+\usepackage{amsmath,amssymb}% matemática
+\usepackage{todonotes}
+\usepackage{hyperref}       % links clicáveis
+\usepackage{caption}        % legendas personalizadas
+\hypersetup{
+  colorlinks   = true,
+  urlcolor     = blue,
+  linkcolor    = blue,
+  citecolor    = blue
+}
+\usepackage{tikz}            % diagramas
+\usepackage{microtype}       % melhorias tipográficas
+\usepackage{enumitem}
+\usetikzlibrary{patterns.meta, arrows.meta, positioning, shapes.geometric}
+
+% ------------------------------------------------------------
+% Todos and notes
+% ------------------------------------------------------------
+%\setlength{\marginparwidth}{2cm}
+%\usepackage[colorinlistoftodos,textsize=scriptsize]{todonotes}
+
+% ------------------------------------------------------------
+% Bibliografia e Citações
+% ------------------------------------------------------------
+\usepackage{csquotes} % citações
+\usepackage[backend=biber, style=abnt]{biblatex}
+\addbibresource{references.bib}
+
+% ------------------------------------------------------------
+% Configurações do documento
+% ------------------------------------------------------------
+% Page setup
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+% Paragraph spacing
+\usepackage{parskip}
+
+% Configuração dos títulos dos apêndices
+\usepackage{titlesec}
+\renewcommand{\appendixname}{APÊNDICE}
+
+% ------------------------------------------------------------
+% Variáveis do Documento
+% ------------------------------------------------------------
+
+\newcommand{\instituicao}{UNIVERSIDADE FEDERAL DE SANTA CATARINA}
+\newcommand{\departamento}{Programa de Pós-Graduação em Economia}
+\newcommand{\curso}{Mestrado}
+\newcommand{\disciplina}{Métodos Quantitativos}
+\newcommand{\titulo}{Sundaram}
+\newcommand{\subtitulo}{Exercícios - Capítulo 1}
+\newcommand{\autor}{}
+%\newcommand{\orientador}{}
+\newcommand{\local}{Florianópolis}
+\newcommand{\dataentrega}{\today}
+%\newcommand{\resumo}{
+%\lipsum[1][1-8] % Resumo do trabalho
+%}
+
+% ------------------------------------------------------------
+% Título simples
+% ------------------------------------------------------------
+\newcommand{\imprimirtitulo}{
+\noindent
+
+\begin{center}
+  {\Large\bfseries\MakeUppercase{\instituicao}\par}
+  \vspace{0.2em}
+  {\large \departamento\par}
+  \vspace{0.2em}
+  {\normalsize\textbf{\disciplina}\ (\curso)\par}
+  \vspace{1.4em}
+  {\LARGE\bfseries \titulo\par}
+  \vspace{0.25em}
+  {\large\itshape \subtitulo\par}
+  \vspace{1.5em}
+\end{center}
+
+\noindent
+\begin{minipage}{0.48\textwidth}
+  \raggedright\normalsize \autor
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+  \raggedleft\normalsize \local, \dataentrega
+\end{minipage}
+
+\vspace{1.0em}
+\hrule
+}
+
+
+% ------------------------------------------------------------
+% Capa
+% ------------------------------------------------------------
+
+\begin{document}
+\imprimirtitulo
+
+% ----------------------------------------------------------------------------
+% Sumário
+% ----------------------------------------------------------------------------
+
+\renewcommand{\contentsname}{Sumário}
+\tableofcontents
+\vspace{1.5em}
+\hrule
+
+% ----------------------------------------------------------------------------
+% Corpo do documento
+% ----------------------------------------------------------------------------
+
+Show that equality obtains in the Cauchy--Schwartz inequality if and only if the vectors $x$ and $y$ are collinear (i.e., either $x = ay$ for some $a \in \mathbb{R}$ or $y = bx$ for some $b \in \mathbb{R}$). (Note: This is a difficult question. Prove the result for unit vectors first, i.e., for vectors $x$ and $y$ which satisfy $x \cdot x = y \cdot y = 1$. Then reduce the general case to this one.)
+
+\newpage
+
+% Autor - Gabriel Cintra
+\section{Resolução 1}
+  
+  \textbf{Answer:} 
+
+  \textbf{Claim:} 
+  Let $x$ and $y$ be two vectors in $\mathbb{R}^n$. 
+
+  Then $|x \cdot y| = (x \cdot x)^{1/2}(y \cdot y)^{1/2} \Leftrightarrow (\exists a \in \mathbb{R})(x = ay) \lor (\exists b \in \mathbb{R})(y = bx).$
+
+  \textbf{Proof:}
+
+  The proof will be structured in three steps.
+
+  We begin by proving $(\Rightarrow)$, using two different approaches. 
+  
+  We then prove $(\Leftarrow)$ to complete the proof.
+
+  We assume $x \ne 0$ since in the trivial case where $x=0$ the equality holds and $x,y$ are collinear.
+
+  \textbf{Step 1: $(\Rightarrow)$: Approach 1: By algebraic manipulation:}
+
+  From the definition of Euclidean inner product we can express $|x \cdot y| = (x \cdot x)^{1/2}(y \cdot y)^{1/2}$ in summation notation, as follows:
+  
+  $\left| \sum_{i=1}^n x_i y_i \right|=\left( \sum_{i=1}^n x_i^2 \right)^{1/2}\left( \sum_{i=1}^n y_i^2 \right)^{1/2}$,
+
+  $\left(\left( \sum_{i=1}^n x_i y_i \right)^2\right)^{1/2}=\left( \sum_{i=1}^n x_i^2 \right)^{1/2}\left( \sum_{i=1}^n y_i^2 \right)^{1/2}$,
+
+  $\left( \sum_{i=1}^n x_i y_i \right)^2= \sum_{i=1}^n x_i^2 \cdot \sum_{i=1}^n y_i^2 $,
+
+  $(x_1y_1 + x_2y_2 + \cdots + x_ny_n)^2=(x_1^2 + x_2^2 + \cdots + x_n^2)(y_1^2 + y_2^2 + \cdots + y_n^2)$
+
+  $\sum_{i=1}^n x_i^2 y_i^2 + 2\sum_{1 \le i < j \le n} x_i x_j y_i y_j = \sum_{i=1}^n \sum_{j=1}^n x_i^2 y_j^2$
+
+  $\sum_{i=1}^n x_i^2 y_i^2 + 2\sum_{1 \le i < j \le n} x_i x_j y_i y_j = \sum_{i=1}^n x_i^2 y_i^2 + \sum_{1 \le i < j \le n} (x_i^2 y_j^2 + x_j^2 y_i^2)$
+
+  $2\sum_{1 \le i < j \le n} x_i x_j y_i y_j = \sum_{1 \le i < j \le n} (x_i^2 y_j^2 + x_j^2 y_i^2)$
+
+  $\sum_{1 \le i < j \le n} (x_i^2 y_j^2 + x_j^2 y_i^2 - 2x_i x_j y_i y_j)=0$
+
+  $\sum_{1 \le i < j \le n} (x_i y_j - x_j y_i)^2 = 0$.
+
+  A sum of squares can only be zero if each term is equal to zero. Hence
+
+  $x_i y_j = x_j y_i \qquad \text{for all } 1 \le i < j \le n.$
+
+  If $y=0$, then $y = 0x$, hence $x$ and $y$ are collinear.
+
+  If $y \ne 0$, choose $k$ such that $y_k \ne 0$, and let $a = \dfrac{x_k}{y_k}$.
+
+  Then for every $i$ we have $x_i y_k = x_k y_i$, so $x_i = \dfrac{x_k}{y_k} y_i = ay_i$.
+
+  Therefore $x = ay$, and hence $x$ and $y$ are collinear.
+
+  \newpage
+  \textbf{Step 2: $(\Rightarrow)$: Approach 2: By vector Decomposition:}
+
+  From the definition of Euclidean inner product we can express $|x \cdot y| = (x \cdot x)^{1/2}(y \cdot y)^{1/2}$ as follows:
+
+  $(x'y)^2=x'xy'y$
+
+  $y'y = \frac{(x'y)^2}{x'x}$
+
+  We then decompose $y$ onto a component parallel to $x$ and another component orthogonal to it, thus, for some $c \in \mathbb{R}$:
+
+  $y = cx + e$, where $x'e = 0$, hence
+
+  $x'y = cx'x + x'e$, since $x'e = 0$,
+
+  $x'y = cx'x$, and,
+
+  $c = \frac{x'y}{x'x}$.
+
+  Therefore we can express $y'y$ as:
+
+  $y'y=(cx+e)'(cx+e)$
+
+  $y'y=(cx'+e')(cx+e)$
+
+  $y'y=cx'cx+e'cx+cx'e+e'e$
+
+  $y'y=cx'cx+e'e$
+
+  $y'y=c^2x'x+e'e$
+
+  $y'y=\frac{(x'y)^2}{x'x}+e'e$.
+
+  Hence $e'e=0$, which can only be true if $e=0$.
+
+  Therefore $y = cx$.
+
+  \textbf{Step 3: $(\Leftarrow)$:}
+
+  Assume that $x,y$ are collinear for some $c$, hence:
+
+  $y = cx$
+
+  $y'y=cy'x$
+
+  $y'y=cx'y$.
+
+  Choose $c = \frac{x'y}{x'x}$, then:
+
+  $y'y=\frac{x'y}{x'x}x'y$
+
+  $(x'y)^2=x'xy'y$, taking the square root in both sides and using the inner product notation:
+
+  $|x \cdot y| = (x \cdot x)^{1/2}(y \cdot y)^{1/2}$.
+
+  $\square$
+
+% ----------------------------------------------------------------------------
+% Referências
+% ----------------------------------------------------------------------------
+
+%\newpage
+%\renewcommand{\refname}{REFERÊNCIAS}
+%\addcontentsline{toc}{section}{REFERÊNCIAS}
+%\printbibliography
+
+% ----------------------------------------------------------------------------
+% Apêndice
+% ----------------------------------------------------------------------------
+
+%\newpage
+%\appendix
+%\section*{APÊNDICES} % título de abertura
+%\addcontentsline{toc}{section}{APÊNDICES} % entra no sumário
+
+% ------------------------------
+% APÊNCICE A
+% ------------------------------
+
+%\section{Referência dos dados utilizados}
+%\subsection{Produto}
+
+% ------------------------------
+% Final do documento
+% ------------------------------
+
+\end{document}

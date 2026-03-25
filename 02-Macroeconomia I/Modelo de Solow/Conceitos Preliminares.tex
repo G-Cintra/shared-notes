@@ -1,0 +1,355 @@
+\documentclass[12pt]{article}
+
+% ------------------------------------------------------------
+% Pacotes básicos
+% ------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[brazil]{babel}
+\usepackage[english]{babel}
+
+\usepackage{lipsum}         % texto exemplo
+\usepackage{graphicx}       % imagens
+\usepackage{float}          % controle de posição de figuras
+\usepackage{booktabs}       % tabelas
+\usepackage{amsmath,amssymb}% matemática
+\usepackage{todonotes}
+\usepackage{hyperref}       % links clicáveis
+\usepackage{caption}        % legendas personalizadas
+\hypersetup{
+  colorlinks   = true,
+  urlcolor     = blue,
+  linkcolor    = blue,
+  citecolor    = blue
+}
+\usepackage{tikz}            % diagramas
+\usepackage{microtype}       % melhorias tipográficas
+\usepackage{enumitem}
+\usetikzlibrary{patterns.meta, arrows.meta, positioning, shapes.geometric}
+
+% ------------------------------------------------------------
+% Todos and notes
+% ------------------------------------------------------------
+%\setlength{\marginparwidth}{2cm}
+%\usepackage[colorinlistoftodos,textsize=scriptsize]{todonotes}
+
+% ------------------------------------------------------------
+% Bibliografia e Citações
+% ------------------------------------------------------------
+\usepackage{csquotes} % citações
+\usepackage[backend=biber, style=abnt]{biblatex}
+\addbibresource{references.bib}
+
+% ------------------------------------------------------------
+% Configurações do documento
+% ------------------------------------------------------------
+% Page setup
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+% Paragraph spacing
+\usepackage{parskip}
+
+% Configuração dos títulos dos apêndices
+\usepackage{titlesec}
+\renewcommand{\appendixname}{APÊNDICE}
+
+% ------------------------------------------------------------
+% Variáveis do Documento
+% ------------------------------------------------------------
+
+\newcommand{\instituicao}{UNIVERSIDADE FEDERAL DE SANTA CATARINA}
+\newcommand{\departamento}{Programa de Pós-Graduação em Economia}
+\newcommand{\curso}{Mestrado}
+\newcommand{\disciplina}{Macroeconomia I}
+\newcommand{\titulo}{Modelo de Solow Swan}
+\newcommand{\subtitulo}{Conceitos Preliminares}
+\newcommand{\autor}{}
+%\newcommand{\orientador}{}
+\newcommand{\local}{Florianópolis}
+\newcommand{\dataentrega}{\today}
+%\newcommand{\resumo}{
+%\lipsum[1][1-8] % Resumo do trabalho
+%}
+
+% ------------------------------------------------------------
+% Título simples
+% ------------------------------------------------------------
+\newcommand{\imprimirtitulo}{
+\noindent
+
+\begin{center}
+  {\Large\bfseries\MakeUppercase{\instituicao}\par}
+  \vspace{0.2em}
+  {\large \departamento\par}
+  \vspace{0.2em}
+  {\normalsize\textbf{\disciplina}\ (\curso)\par}
+  \vspace{1.4em}
+  {\LARGE\bfseries \titulo\par}
+  \vspace{0.25em}
+  {\large\itshape \subtitulo\par}
+  \vspace{1.5em}
+\end{center}
+
+\noindent
+\begin{minipage}{0.48\textwidth}
+  \raggedright\normalsize \autor
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+  \raggedleft\normalsize \local, \dataentrega
+\end{minipage}
+
+\vspace{1.0em}
+\hrule
+}
+
+
+% ------------------------------------------------------------
+% Capa
+% ------------------------------------------------------------
+
+\begin{document}
+\imprimirtitulo
+
+% ----------------------------------------------------------------------------
+% Sumário
+% ----------------------------------------------------------------------------
+
+\renewcommand{\contentsname}{Sumário}
+\tableofcontents
+\vspace{1.5em}
+\hrule
+
+% ----------------------------------------------------------------------------
+% Corpo do documento
+% ----------------------------------------------------------------------------
+\newpage
+\section{Conceitos preliminares}
+
+\subsection{Funções côncavas}
+
+\textbf{Concavidade} $\Rightarrow$ \textbf{rendimentos marginais decrescentes} $\Rightarrow f''(x) < 0$. 
+
+Geometricamente, a reta entre dois pontos da curva fica abaixo da função.
+
+\noindent\rule{\textwidth}{0.4pt}
+
+Uma função $f : D \subseteq \mathbb{R} \to \mathbb{R}$ é \textbf{côncava} se, para quaisquer $x,y \in D$ e qualquer $\lambda \in [0,1]$,
+$f(\lambda x + (1-\lambda)y) \geq \lambda f(x) + (1-\lambda)f(y)$.
+
+Em palavras, o valor da função na média ponderada entre $x$ e $y$ é maior ou igual à média ponderada dos valores da função nesses pontos. Geometricamente, isso significa que o gráfico da função fica acima de qualquer corda ligando dois pontos do seu gráfico.
+
+Se a desigualdade for estrita para $x \neq y$ e $\lambda \in (0,1)$, a função é \textbf{estritamente côncava}.
+
+Se $f$ for diferenciável, a concavidade implica que \textbf{a primeira derivada $f'$} é decrescente. Isto é, se $x_1 < x_2$, então
+$f'(x_1) \geq f'(x_2)$.
+
+Se $f$ for duas vezes diferenciável em um intervalo, então $f$ é côncava se, e somente se,
+$f''(x) \leq 0$.
+
+Se, além disso,
+$f''(x) < 0$,
+então $f$ é estritamente côncava.
+
+Assim, para funções suaves, a concavidade está associada a uma inclinação que diminui à medida que a variável aumenta.
+
+Em macroeconomia, a concavidade é usada para representar \textbf{produto marginal decrescente}. 
+
+No modelo de Solow-Swan, se a função de produção por trabalhador é $y=f(k)$, assume-se tipicamente que
+$f'(k) > 0 \quad \text{e} \quad f''(k) < 0$.
+
+A primeira condição diz que mais capital por trabalhador aumenta o produto por trabalhador; a segunda diz que esse aumento ocorre a taxas decrescentes. Logo, o produto marginal do capital é positivo, mas decrescente.
+
+% ----------------------------------------------------------------------------
+\newpage
+\subsection{Condições de Inada}
+
+\textbf{Condições de Inada} $\Rightarrow$ produtividade marginal explosiva quando o fator é escasso e nula quando o fator é abundante.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
+
+As \textbf{condições de Inada} são restrições sobre o comportamento assintótico das \textbf{produtividades marginais} de uma função de produção. Ou seja, descrevem o comportamento das derivadas da função de produção quando um fator tende a zero ou a infinito.
+
+Considere uma função de produção $f(x)$ crescente, isto é, $f'(x)>0$, o que significa que o produto marginal é positivo; e côncava, isto é, $f''(x)<0$, o que significa que o produto marginal é decrescente. Nesse caso, as \textbf{condições de Inada} são dadas por:
+
+$\lim_{x \to 0} f'(x)=\infty$
+\quad e \quad
+$\lim_{x \to \infty} f'(x)=0$.
+
+Em palavras:
+
+\begin{enumerate}
+    \item quando o insumo se aproxima de zero, sua produtividade marginal tende ao infinito;
+    \item quando o insumo cresce sem limite, sua produtividade marginal tende a zero.
+\end{enumerate}
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
+
+Para uma função de produção agregada $F(K,L)$, as condições de Inada podem ser formuladas em termos das produtividades marginais de cada fator.
+
+Por exemplo, mantendo o trabalho $L$ fixo e variando o capital $K$, tem-se:
+
+$\lim_{K \to 0} F_K(K,L)=\infty$
+\quad e \quad
+$\lim_{K \to \infty} F_K(K,L)=0$.
+
+De forma análoga, mantendo o capital $K$ fixo e variando o trabalho $L$, tem-se:
+
+$\lim_{L \to 0} F_L(K,L)=\infty$
+\quad e \quad
+$\lim_{L \to \infty} F_L(K,L)=0$.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
+
+Para a função Cobb-Douglas com uma variável:
+
+$f(k)=k^\alpha$, \quad com $0<\alpha<1$.
+
+Nesse caso,
+
+$f'(k)=\alpha k^{\alpha-1}$,
+
+de modo que
+
+$\lim_{k \to 0} f'(k)=\infty$
+\quad e \quad
+$\lim_{k \to \infty} f'(k)=0$.
+
+Logo, a Cobb-Douglas satisfaz as condições de Inada.
+
+% ----------------------------------------------------------------------------
+\newpage
+
+\subsection{Função homogênea de grau $n$}
+
+\textbf{Homogeneidade de grau $n$:} se todos os argumentos de uma função forem multiplicados por um mesmo escalar $\lambda$, o valor da função é multiplicado por $\lambda^n$.
+
+$n = 1 \Rightarrow$ \textbf{retornos constantes de escala} $\Rightarrow$ $F(\lambda K,\lambda L)=\lambda F(K,L)$.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
+
+Uma função $F(K,L)$ é \textbf{homogênea de grau $n$} se, para todo $\lambda > 0$,
+$F(\lambda K,\lambda L)=\lambda^n F(K,L)$.
+
+A homogeneidade descreve como a função responde a uma variação proporcional de todos os seus argumentos.
+Em particular:
+
+\begin{enumerate}
+    \item se $n=1$, a função é homogênea de grau 1 e apresenta \textbf{retornos constantes de escala};
+    \item se $n>1$, a função apresenta \textbf{retornos crescentes de escala};
+    \item se $n<1$, a função apresenta \textbf{retornos decrescentes de escala}.
+\end{enumerate}
+
+Se a função de produção agregada $F(K,L)$ é homogênea de grau 1, então
+
+$F(\lambda K,\lambda L)=\lambda F(K,L)$,
+
+isto é, ao multiplicar capital e trabalho por um mesmo fator, o produto também é multiplicado por esse fator.
+Essa hipótese permite escrever a função de produção na forma intensiva (em termos por trabalhador, ou seja, dividindo por L). 
+
+Se
+$Y=F(K,L)$
+e $F$ é homogênea de grau 1, então:
+
+$\frac{Y}{L}=F\left(\frac{K}{L},1\right)$.
+
+Definindo
+$y=\frac{Y}{L}$ \quad e \quad $k=\frac{K}{L}$,
+obtemos:
+
+$y=f(k)$, $\quad \text{onde} \quad f(k)=F(k,1)$.
+
+Essa transformação é central no modelo de Solow-Swan, pois permite estudar a dinâmica da economia em termos de produto por trabalhador e capital por trabalhador.
+% ----------------------------------------------------------------------------
+\newpage
+\subsection{Teorema de Euler}
+
+\textbf{Teorema de Euler:} se uma função é diferenciável e homogênea de grau $n$, então a soma das derivadas parciais ponderadas pelos respectivos argumentos é igual a $n$ vezes o valor da função.
+
+\noindent\rule{\textwidth}{0.4pt}
+
+Seja $f(x_1,\dots,x_m)$ uma função diferenciável e homogênea de grau $n$. Então,
+
+$\sum_{i=1}^{m} \frac{\partial f}{\partial x_i}(x_1,\dots,x_m)\,x_i = n f(x_1,\dots,x_m)$.
+
+\subsubsection{Aplicação ao modelo de Solow-Swan}
+
+No modelo de Solow-Swan, a função de produção agregada é escrita como
+
+$Y = F(K,L)$,
+
+onde $K$ é o capital e $L$ é o trabalho.
+
+Se $F(K,L)$ é diferenciável e homogênea de grau 1, isto é, apresenta retornos constantes de escala, então, pelo Teorema de Euler,
+
+$F_K(K,L)\,K + F_L(K,L)\,L = F(K,L)$.
+
+Como $Y = F(K,L)$, segue que
+
+$F_K(K,L)\,K + F_L(K,L)\,L = Y$.
+
+Aqui, $F_K(K,L)$ representa o produto marginal do capital e $F_L(K,L)$ representa o produto marginal do trabalho.
+
+Sob concorrência perfeita, cada fator é remunerado de acordo com sua produtividade marginal. Assim, a remuneração por unidade de capital é
+
+$r = F_K(K,L)$,
+
+e a remuneração por unidade de trabalho é
+
+$w = F_L(K,L)$.
+
+Como a economia emprega $K$ unidades de capital e $L$ unidades de trabalho, a renda total do capital é
+
+$rK = F_K(K,L)\,K$,
+
+e a renda total do trabalho é
+
+$wL = F_L(K,L)\,L$.
+
+Substituindo essas expressões na identidade dada pelo Teorema de Euler, obtemos
+
+$Y = rK + wL$.
+
+Portanto, no modelo de Solow-Swan, sob retornos constantes de escala e concorrência perfeita, o produto total é exatamente exaurido pela remuneração dos fatores de produção. 
+
+Assim, o Teorema de Euler fornece a base para a decomposição da renda entre capital e trabalho.
+
+
+% ----------------------------------------------------------------------------
+% Referências
+% ----------------------------------------------------------------------------
+
+%\newpage
+%\renewcommand{\refname}{REFERÊNCIAS}
+%\addcontentsline{toc}{section}{REFERÊNCIAS}
+%\printbibliography
+
+% ----------------------------------------------------------------------------
+% Apêndice
+% ----------------------------------------------------------------------------
+
+%\newpage
+%\appendix
+%\section*{APÊNDICES} % título de abertura
+%\addcontentsline{toc}{section}{APÊNDICES} % entra no sumário
+
+% ------------------------------
+% APÊNCICE A
+% ------------------------------
+
+%\section{Referência dos dados utilizados}
+%\subsection{Produto}
+
+% ------------------------------
+% Final do documento
+% ------------------------------
+
+\end{document}

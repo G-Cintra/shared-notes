@@ -1,0 +1,222 @@
+\documentclass[12pt]{article}
+
+% ------------------------------------------------------------
+% Pacotes básicos
+% ------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[brazil]{babel}
+\usepackage[english]{babel}
+
+\usepackage{lipsum}         % texto exemplo
+\usepackage{graphicx}       % imagens
+\usepackage{float}          % controle de posição de figuras
+\usepackage{booktabs}       % tabelas
+\usepackage{amsmath,amssymb}% matemática
+\usepackage{todonotes}
+\usepackage{hyperref}       % links clicáveis
+\usepackage{caption}        % legendas personalizadas
+\hypersetup{
+  colorlinks   = true,
+  urlcolor     = blue,
+  linkcolor    = blue,
+  citecolor    = blue
+}
+\usepackage{tikz}            % diagramas
+\usepackage{microtype}       % melhorias tipográficas
+\usepackage{enumitem}
+\usetikzlibrary{patterns.meta, arrows.meta, positioning, shapes.geometric}
+% ------------------------------------------------------------
+% Todos and notes
+% ------------------------------------------------------------
+%\setlength{\marginparwidth}{2cm}
+%\usepackage[colorinlistoftodos,textsize=scriptsize]{todonotes}
+
+% ------------------------------------------------------------
+% Bibliografia e Citações
+% ------------------------------------------------------------
+\usepackage{csquotes} % citações
+\usepackage[backend=biber, style=abnt]{biblatex}
+\addbibresource{references.bib}
+
+% ------------------------------------------------------------
+% Configurações do documento
+% ------------------------------------------------------------
+% Page setup
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+% Paragraph spacing
+\usepackage{parskip}
+
+% Configuração dos títulos dos apêndices
+\usepackage{titlesec}
+\renewcommand{\appendixname}{APÊNDICE}
+
+% ------------------------------------------------------------
+% Variáveis do Documento
+% ------------------------------------------------------------
+
+\newcommand{\instituicao}{UNIVERSIDADE FEDERAL DE SANTA CATARINA}
+\newcommand{\departamento}{Programa de Pós-Graduação em Economia}
+\newcommand{\curso}{Mestrado}
+\newcommand{\disciplina}{Métodos Quantitativos}
+\newcommand{\titulo}{Introduction to Mathematical Thinking}
+\newcommand{\subtitulo}{WEEK 8}
+\newcommand{\autor}{Gabriel P. Cintra}
+%\newcommand{\orientador}{Prof. Dr. Paulo Victor da Fonseca}
+\newcommand{\local}{Florianópolis}
+\newcommand{\dataentrega}{\today}
+%\newcommand{\resumo}{
+%\lipsum[1][1-8] % Resumo do trabalho
+%}
+
+% ------------------------------------------------------------
+% Capa simples
+% ------------------------------------------------------------
+\newcommand{\imprimircapa}{
+
+\begin{titlepage}
+    \centering
+
+    \vspace*{2cm}
+
+    {\Large\textbf{\instituicao}}\\[0.5em]
+    {\large\departamento}\\[2em]
+
+    {\Large\textbf{\curso}}\\[0.5em]
+    {\large \disciplina}\\[2em]
+
+    \vfill
+
+    {\LARGE\bfseries \titulo}\\[1em]
+    {\large\itshape \subtitulo}\\[4em]
+
+    \textbf{Autor:} \autor\\[0.5em]
+    \textbf{Orientado por:} \orientador\\[4em]
+
+    \vfill
+
+    \textit{\resumo}
+
+    \vfill
+
+    {\large \local, \dataentrega}
+
+\end{titlepage}
+
+\newpage
+}
+
+% ------------------------------------------------------------
+% Título simples (sem capa)
+% ------------------------------------------------------------
+\newcommand{\imprimirtitulo}{
+\begin{center}
+    {\Large\textbf{\instituicao}}\\[0.25em]
+    {\normalsize\departamento}\\[0.75em]
+
+    {\large\textbf{\curso}}\\[0.25em]
+    {\normalsize \disciplina}\\[1.25em]
+
+    {\LARGE\bfseries \titulo}\\[0.5em]
+    {\large\itshape \subtitulo}\\[1.25em]
+
+    {\normalsize \autor \;\;—\;\; \local, \dataentrega}
+\end{center}
+\vspace{1.0em}
+\hrule
+%\vspace{1.0em}
+}
+
+% ------------------------------------------------------------
+% Título simples alternativo
+% ------------------------------------------------------------
+\newcommand{\imprimirtitulodois}{
+    \noindent
+% preâmbulo recomendado:
+% \usepackage[T1]{fontenc}
+% \usepackage{microtype}
+
+\begin{center}
+  {\Large\bfseries\MakeUppercase{\instituicao}\par}
+  \vspace{0.2em}
+  {\large \departamento\par}
+  \vspace{0.2em}
+  {\normalsize\textbf{\disciplina}\ (\curso)\par}
+  \vspace{1.4em}
+  {\LARGE\bfseries \titulo\par}
+  \vspace{0.25em}
+  {\large\itshape \subtitulo\par}
+  \vspace{1.5em}
+\end{center}
+
+\noindent
+\begin{minipage}{0.48\textwidth}
+  \raggedright\normalsize \autor
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+  \raggedleft\normalsize \local, \dataentrega
+\end{minipage}
+
+    \vspace{1.0em}
+    \hrule
+    %\vspace{1.0em}
+}
+
+
+% ------------------------------------------------------------
+% Capa
+% ------------------------------------------------------------
+
+\begin{document}
+\imprimirtitulodois
+%\imprimircapa
+
+% ----------------------------------------------------------------------------
+% Sumário
+% ----------------------------------------------------------------------------
+
+%\renewcommand{\contentsname}{Sumário}
+\tableofcontents
+\vspace{1.5em}
+\hrule
+
+%\newpage
+
+% ----------------------------------------------------------------------------
+% Corpo do documento
+% ----------------------------------------------------------------------------
+\newpage
+\section{Assignment 10.1}
+
+% ----------------------------------------------------------------------------
+% Referências
+% ----------------------------------------------------------------------------
+
+%\newpage
+%\renewcommand{\refname}{REFERÊNCIAS}
+%\addcontentsline{toc}{section}{REFERÊNCIAS}
+%\printbibliography
+
+% ----------------------------------------------------------------------------
+% Apêndice
+% ----------------------------------------------------------------------------
+
+%\newpage
+%\appendix
+%\section*{APÊNDICES} % título de abertura
+%\addcontentsline{toc}{section}{APÊNDICES} % entra no sumário
+
+% ------------------------------
+% APÊNCICE A
+% ------------------------------
+
+%\section{Referência dos dados utilizados}
+%\subsection{Produto}
+
+% ------------------------------
+% Final do documento
+% ------------------------------
+
+\end{document}
